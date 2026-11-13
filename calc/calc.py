@@ -22,15 +22,21 @@ While True:
     if choice in ['4', '6', '7'] and b == 0:
         print('Ошибка. На ноль делить нельзя.')
         continue
-    if choice == '1': res = a + b
-    elif choice == '2': res = a - b
-    elif choice == '2': res = a * b
-    elif choice == '2': res = a / b
-    elif choice == '2': res = a ** b
-    elif choice == '2': res = a % b
-    elif choice == '2': res = a // b
+    if choice == '1': 
+        result = a + b
+    elif choice == '2':
+        result = a - b
+    elif choice == '3': 
+        result = a * b
+    elif choice == '4':
+        result = a / b
+    elif choice == '5':
+        result = a ** b
+    elif choice == '6':
+        result = a % b
+    elif choice == '7': 
+        result = a // b
+    print('результат:', result)
 
-    print('результат:', res)
-
-    if res > 100:
+    if result > 100:
         print('Высокое значение.)
