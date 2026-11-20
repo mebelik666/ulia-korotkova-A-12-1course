@@ -1,0 +1,106 @@
+books = [
+    'красная шапка'
+    'три порося'
+    'аленький цветочек'
+    'колобок'
+    'человек-паук'
+]
+
+def show_menu():
+
+    print('1 - добавить книгу')
+    print('2 - показать все книги')
+    print('3 - показать последние 5 прочитанных')
+    print('4 - заложить название по номеру')
+    print('5 - поиск на название')
+    print('6 - статистка')
+    print('0 - выход')
+def add_book():
+    '''добавить книгу в список'''
+    name = input('введите название книги').strip()
+    if name == "":
+        print('ошибка.нет названия книги')
+    else:
+        books.append(name)
+        print('книга добавлена.')
+
+def show_books():
+    '''показать все книги с номерами'''
+    if len(books) == 0:
+        print('дневник пуст.')
+    else:
+        for i in range(len(books)):
+            print(str(i + 1) + '. ' + books[i])
+
+def show_latest_books():
+    '''показать последние 5 прочитанных книг.'''
+    if len(books) == 0:
+        print('дневник пустой')
+    else:
+        last_five = books[-5:]
+        for books in last_five:
+            print(books)
+
+def replace_book():
+    '''заменить название книги по номеру'''
+    num_str = input('введите номер книги: ').strip()
+    if not num.str.isdigit():
+        print('ошибкаю.введите положительное число')
+    else:
+        num = int(num_str)
+        if num < 1 or num > len(books):
+            print('ошибка.книги с таким номером нет')
+        else:
+            new_name = input('введите новое название').strip
+            if new_name == '':
+                print('ошибка.название пустое')
+            else:
+                books[num - 1] = new_name
+                print('навание изменен')
+
+def search_book():
+    '''найти книгу по названию'''
+    if len(books) == 0:
+        print('дневник пуст')
+    else:
+        quary = input('что найти?').strip().lower()
+        found = False
+        for i in range(len(books)):
+            if quary in books[i].lower():
+                print(str(i + 1) + '.' + books[i])
+                found = True
+        if not found:
+            print('ничего не найдено')
+
+def show_stats():
+    '''показать статистику книг'''
+    if len(books) == 0:
+        print('Дневник пуст')
+    else:
+        print('всего прочитано книг')
+        print('первая книга:', books[0])
+        print('последняя книга:', books [-1])
+
+def main():
+    while True:
+        show_menu()
+        choice = input('выберите пункт: ').strip
+        if choice == '1':
+            add_book()
+        elif choice == '2':
+            show_books()
+        elif choice == '3':
+            show_latest_books()
+        elif choice == '4':
+            replace_book()
+        elif choice == '5':
+            search_book()
+        elif choice == '6':
+            show_stats()
+        elif choice == '0':
+            print('пока')
+            break 
+        else:
+            print('ошибка.такого пункта нет')
+
+main()
